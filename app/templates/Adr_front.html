@@ -7,9 +7,12 @@
         <div class="row">
           <div class="col">
             <form method="post" enctype="multipart/form-data" >  
-                {% csrf_token %}  
-                <br><br><br><br>
-                {{ form.as_p }}  
+                {% csrf_token %}
+                <!-- <br><br>
+                <h1>Aadhar Front</h1>  
+                <br><br> -->
+                {{ form.as_p }} 
+                <br><br> 
                 <button type="submit">Upload</button>  
             </form>  
           

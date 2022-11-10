@@ -82,6 +82,31 @@ def pan(request):
 
 
 
+# def bank(request):
+    
+#     if request.method == 'POST':
+#         formb = BankForm(request.POST, request.FILES)
+#         if formb.is_valid():
+#             formb.save()
+#             data = formb.instance
+
+#             img = BankStatement.objects.last()
+#             header= {
+#                 "Content-Type": "application/pdf",
+#             }
+#             r = requests.post('https://devbankstatement.digisparsh.in:8000/upload_file/?', params={'text': data.text, 'password':data.password} ,files={'file': data.statement}, headers=header, verify=False)
+            
+#             print(type(r))
+#             print(r.status_code)
+#             return render(request, 'bank.html', {'formb':formb, 'data':data, 'r':r})
+
+#     else:
+#         formb = BankForm()
+       
+
+#     return render(request, 'bank.html', {'formb': formb,})
+
+
 def bank(request):
     
     if request.method == 'POST':
@@ -89,19 +114,25 @@ def bank(request):
         if formb.is_valid():
             formb.save()
             data = formb.instance
-
-            img = BankStatement.objects.last()
-            header= {
-                "Content-Type": "application/pdf",
-            }
-            r = requests.post('https://devbankstatement.digisparsh.in:8000/upload_file', params={'text': data.text, 'password':data.password} ,files={'statement': data.statement}, headers=header, verify=False)
             
-            print(type(r))
-            print(r.status_code)
-            return render(request, 'bank.html', {'formb':formb, 'data':data, 'r':r})
+            url = "https://devbankstatement.digisparsh.in:8000/upload_file/?"
+            payload={}
+            
+            files=[
+                    ('file',(data.file,open(data.file.url,'rb'),'application/pdf'))
+                    ]
+            headers= {
+            }
+            response = requests.request("POST", url, headers=headers, data=payload, files=files, params={'text':data.text})
+            print(response.text)
+            return render(request, 'bank.html', {'formb':formb, 'response':response})
 
     else:
         formb = BankForm()
        
 
     return render(request, 'bank.html', {'formb': formb,})
+
+
+  
+
