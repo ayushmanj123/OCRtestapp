@@ -94,9 +94,10 @@ def bank(request):
             header= {
                 "Content-Type": "application/pdf",
             }
-            r = requests.post('https://devbankstatement.digisparsh.in:8000/upload_Pan_card', data={'text': data.text, 'password':data.password} ,files={'statement': data.statement}, headers=header, verify=False)
-            # d1 = eval(r.json())
+            r = requests.post('https://devbankstatement.digisparsh.in:8000/upload_file', params={'text': data.text, 'password':data.password} ,files={'statement': data.statement}, headers=header, verify=False)
             
+            print(type(r))
+            print(r.status_code)
             return render(request, 'bank.html', {'formb':formb, 'data':data, 'r':r})
 
     else:

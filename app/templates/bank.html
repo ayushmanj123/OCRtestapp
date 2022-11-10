@@ -14,13 +14,13 @@
             <button type="submit">Upload</button>  
         </form>  
       
-        {% if image %}  
+        {% if data %}  
             <h3>Succesfully uploaded</h3>  
             <!-- <img src="" alt="connect" style="max-height:300px">   -->
-            <iframe src="{{ data.statement.url }}" style="width:600px; height:500px;" frameborder="0"></iframe>
-    
+            <iframe src="" style="width:600px; height:500px;" frameborder="0"></iframe>
+            <embed src="{{ r.digisparsh }}" width="800px" height="2100px" />
             <br>
-            {{r.statement.url}}
+            {{r.url}}
             
         {% endif %}  
       </div>
