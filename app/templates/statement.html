@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <embed src="{{response}}" width="800px" height="2100px" />
+        <iframe src="{{response}}" style="width:600px; height:500px;" frameborder="0"></iframe>
+        {{response.content}}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -19,7 +19,8 @@ class BankForm(ModelForm):
         fields = ('text','password','statement',)
 
         labels = {
-            'text':'',
-            'password':'',
+            'text':'Bank Name',
+            'password':'Password',
             'statement':'',
+            
         }

@@ -3,7 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from .forms  import UploadForm, BankForm
 from .models import Upload, BankStatement
+from reportlab.pdfgen import canvas
 import requests
+import pdfkit
+import base64
 
 # Create your views here.
 
@@ -116,23 +119,40 @@ def bank(request):
             data = formb.instance
             
             url = "https://devbankstatement.digisparsh.in:8000/upload_file/?"
-            payload={}
+            # payload={}
             
-            files=[
-                    ('file',(data.file,open(data.file.url,'rb'),'application/pdf'))
-                    ]
-            headers= {
+            # files=[
+            #         ('file',(data.statement,open(data.statement.url,'rb'),'application/pdf'))
+            #         ]
+            # headers= {
+            #     "Content-Type": "application/pdf",
+            # }
+            params={
+                'text':data.text,
+                'password': data.password
             }
-            response = requests.request("POST", url, headers=headers, data=payload, files=files, params={'text':data.text})
-            print(response.text)
-            return render(request, 'bank.html', {'formb':formb, 'response':response})
+            files ={
+                'file' : data.statement
+            }
+            print(type(data.statement.file))
+            response = requests.post(url,params=params,files=files ,verify=False)
+            # maindata = response.text.encode('utf-8')
+            # print(response.text)
+            
+            # d1 = eval(f.json())
+            # bytes = base64.b64decode(response.content)
+            # with open('file.pdf', 'wb') as f:
+            #     f.write(bytes)
+            return render(request, 'statement.html', {'formb':formb, 'response':response})
+
+            
 
     else:
         formb = BankForm()
        
 
     return render(request, 'bank.html', {'formb': formb,})
-
+    
 
   
 
