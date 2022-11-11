@@ -2,17 +2,115 @@
 
 {% block content %}
 
+<style>
 
 
 
-<div class="container text-center">
+</style>
+
+<body>
+  <div class="container-fluid ">
     <div class="row">
-      <div class="col">
-        <embed src="{{response}}" width="800px" height="2100px" />
-        <iframe src="{{response}}" style="width:600px; height:500px;" frameborder="0"></iframe>
-        {{response.content}}
+      <div class="col-8">
+        <table class="table table-striped">
+          <tbody>
+            <h2>Transactions</h2>        
+              {% for d in response.extracted_data %}
+              
+              <tr>
+                <th>
+                <div scope="row">
+                  {% if d.date == "" %}
+                  Date
+                  {% else %}
+                  {{d.date}}
+                  {% endif %}
+                </div>
+              </th>
+              
+              <th>
+                <div scope="row">
+                  {% if d.description == "" %}
+                      Description
+                      {% else %}
+                      {{d.description}}
+                      {% endif %}
+                    </div>
+              </th>
+
+              <th>
+                <div scope="row">{% if d.cheq_no == "" %}
+                  Cheq_no
+                  {% else %}
+                  {{d.cheq_no}}
+                  {% endif %}
+                </div>
+                </th>
+
+                 <th>
+                    <div scope="row">
+                    {% if d.debit == "" %}
+                    Debit
+                    {% else %}
+                    {{d.debit}}
+                    {% endif %}                    
+                    </div>
+                  </th>
+                
+                  <th>
+                    <div scope="row">
+                    {% if d.credit == "" %}
+                    Credit
+                    {% else %}
+                    {{d.credit}}
+                    {% endif %}</div>
+                  </th>
+                  <th> 
+                    <div scope="row">{% if d.balance == "" %}
+                        Balance
+                        {% else %}
+                        {{d.balance}}
+                        {% endif %}</div>
+                      </th>
+                    </tr>
+              {% endfor %}
+              
+            
+          </tbody>
+        </table>
+        
+      </div>
+      <div class="col-4">
+        <table class="table table-striped">
+          <h2>KPI</h2>
+          <tbody>
+        {% for d in response.KPI %}
+        <tr>
+          <th>
+            <div scope="row">
+              {% if d == "" %}
+              NA
+              {% else %}
+              {{d}}
+              {% endif %}
+            </div>
+          </th>
+          <th>
+            <div scope="row">
+              {% if response.KPI|get_item:d  == "" %}
+              NA
+              {% else %}
+              {{ response.KPI|get_item:d }}
+              {% endif %}
+            </div>
+          </th>
+        </tr>
+        {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</body>
 
 {% endblock %}

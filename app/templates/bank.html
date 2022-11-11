@@ -2,29 +2,28 @@
 
 {% block content %}
 
-
-
-
-<div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <form method="POST" enctype="multipart/form-data" >  
-            {% csrf_token %}  
-            {{ formb.as_p }}  
-            <button type="submit">Upload</button>  
-        </form>  
-      
-        {% if data %}  
-            <h3>Succesfully uploaded</h3>  
-            <!-- <img src="" alt="connect" style="max-height:300px">   -->
-           
-            
-            <br>
-            {{response.text}}
-            
-        {% endif %}  
+  <body>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <form method="POST" enctype="multipart/form-data" >  
+              {% csrf_token %}  
+              {{ formb.as_p }}  
+              <button type="submit">Upload</button>  
+          </form>  
+        
+          {% if data %}  
+              <h3>Succesfully uploaded</h3>  
+              <!-- <img src="" alt="connect" style="max-height:300px">   -->
+             
+              
+              <br>
+              {{response.text}}
+              
+          {% endif %}  
+        </div>
       </div>
     </div>
-  </div>
+  </body>
 
 {% endblock %}
