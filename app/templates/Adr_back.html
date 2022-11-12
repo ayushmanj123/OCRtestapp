@@ -13,7 +13,7 @@
             {% csrf_token %}  
             <br><br><br><br>
             {{ form.as_p }}  
-            <button type="submit">Upload</button>  
+            <button type="submit" @onclick="">Upload</button>  
         </form>  
       
         {% if image %}  

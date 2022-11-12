@@ -1,16 +1,35 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Upload, BankStatement
+from .models import FUpload, BankStatement, BUpload, PUpload
 
 
-class UploadForm(ModelForm):
+class FUploadForm(ModelForm):
     class Meta:
-        model = Upload
-        fields = ('file',)
+        model = FUpload
+        fields = ('filef',)
 
         labels = {
-            'file':'File',
+            'filef':'',
         }
+
+class BUploadForm(ModelForm):
+    class Meta:
+        model = BUpload
+        fields = ('fileb',)
+
+        labels = {
+            'fileb':'',
+        }
+
+class PUploadForm(ModelForm):
+    class Meta:
+        model = PUpload
+        fields = ('filep',)
+
+        labels = {
+            'filep':'',
+        }
+
 
 class BankForm(ModelForm):
     class Meta:

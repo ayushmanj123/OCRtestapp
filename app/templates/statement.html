@@ -2,19 +2,14 @@
 
 {% block content %}
 
-<style>
-
-
-
-</style>
 
 <body>
   <div class="container-fluid ">
     <div class="row">
       <div class="col-8">
         <table class="table table-striped">
-          <tbody>
-            <h2>Transactions</h2>        
+          <tbody><div class="text-bg-secondary p-3"><h2>Transactions</h2></div>
+                   
               {% for d in response.extracted_data %}
               
               <tr>
@@ -82,7 +77,7 @@
       </div>
       <div class="col-4">
         <table class="table table-striped">
-          <h2>KPI</h2>
+          <div class="text-bg-secondary p-3"><h2>KPI</h2></div>
           <tbody>
         {% for d in response.KPI %}
         <tr>

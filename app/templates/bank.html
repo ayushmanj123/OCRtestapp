@@ -3,10 +3,11 @@
 {% block content %}
 
   <body>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          <form method="POST" enctype="multipart/form-data" >  
+    <div  class="container text-center " style="padding-top: 2% !important; padding-bottom: 2% !important;">
+
+          <form method="POST" enctype="multipart/form-data" > 
+            <div class="row">
+              <div class="col" style="padding-right: 1% !important;padding-left: 1% !important;"> 
               {% csrf_token %}  
               {{ formb.as_p }}  
               <button type="submit">Upload</button>  

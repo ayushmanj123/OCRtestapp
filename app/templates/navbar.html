@@ -1,27 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">OCR</a>
+
+
+
+<nav class="navbar navbar-expand-lg bg-dark  ">
+    <div class="container-fluid" >
+      <a class="navbar-brand text-light" href="{% url 'home' %}" >OCR</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Upload Aadhar
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'aadhar-front' %}">Aadhar Front</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'aadhar-back' %}">Aadhar Back</a></li>
-              
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link active  text-light " aria-current="page" href="{% url 'aadhar' %}">Upload Aadhar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'pan' %}">Upload Pan</a>
+            <a class="nav-link active  text-light" aria-current="page" href="{% url 'pan' %}">Upload Pan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'bank' %}">Upload Bank Statement</a>
+            <a class="nav-link active  text-light" aria-current="page" href="{% url 'bank' %}">Upload Bank Statement</a>
           </li>
         </ul>
       </div>
