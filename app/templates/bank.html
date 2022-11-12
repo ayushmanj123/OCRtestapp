@@ -2,29 +2,28 @@
 
 {% block content %}
 
-  <body>
-    <div  class="container text-center " style="padding-top: 2% !important; padding-bottom: 2% !important;">
-
-          <form method="POST" enctype="multipart/form-data" > 
-            <div class="row">
-              <div class="col" style="padding-right: 1% !important;padding-left: 1% !important;"> 
-              {% csrf_token %}  
-              {{ formb.as_p }}  
-              <button type="submit">Upload</button>  
-          </form>  
+<div class="container text-center " style="padding-top: 2% !important; padding-bottom: 2% !important;">
+    
         
-          {% if data %}  
-              <h3>Succesfully uploaded</h3>  
-              <!-- <img src="" alt="connect" style="max-height:300px">   -->
-             
-              
-              <br>
-              {{response.text}}
-              
-          {% endif %}  
-        </div>
-      </div>
+ 
+  <form method="post" enctype="multipart/form-data" > 
+    <div class="row">
+    <div class="col" style="padding-right: 1% !important;padding-left: 1% !important;">
+      {% csrf_token %}
+      <div class="border-bottom"><h1>Bank Statement</h1> </div>
+       
+      
+      <div style="margin-left: 12%; margin-top:5%">{{ formb.as_p }}</div>
+      
+      <br><br> 
     </div>
-  </body>
+    <br>
+    <div id="uploadbtn" style="margin-top: 2%;"><center><button class="btn btn-secondary" type="submit">Upload</button></center></div>
+</form>   
+
+</div>
+</div>
+</div>
 
 {% endblock %}
+
