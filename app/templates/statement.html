@@ -4,9 +4,9 @@
 
 
 <body>
-  <div class="container-fluid ">
+  <div class="container-fluid " style="position: absolute !important; left:0% !important">
     <div class="row">
-      <div class="col-8">
+      <div class="col-9">
         <table class="table table-striped">
           <tbody><div class="text-bg-secondary p-3"><h2>Transactions</h2></div>
                    
@@ -75,9 +75,9 @@
         </table>
         
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <table class="table table-striped">
-          <div class="text-bg-secondary p-3"><h2>KPI</h2></div>
+          <div class="text-bg-secondary p-3" style="padding-right: 100% !important;"><h2>KPI</h2></div>
           <tbody>
         {% for d in response.KPI %}
         <tr>

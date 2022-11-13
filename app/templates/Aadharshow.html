@@ -3,17 +3,6 @@
 {% block content %}
 
 <script>
-  
-formsubmit.addEventListener("click", function(e){
-  e.preventDefault();
-})
-
-
-function hide(data){
-  document.getElementById("Afront").style.display = "none";
-  document.getElementById("Aback").style.display = "none";
-  document.getElementById("uploadbtn").style.display = "none";
-}
 
 
 </script>
@@ -29,7 +18,6 @@ function hide(data){
                 <div class="border-bottom"><h1>Aadhar Front</h1> </div>
                  
                 
-                <div id="Afront" style="margin-left: 12%; margin-top:5%" >{{ formf.as_p }} </div>
                 
                 <br><br> 
             {% if image1 %}  
@@ -56,7 +44,6 @@ function hide(data){
                 <div class="col " style="padding-right: 1% !important;padding-left: 1% !important;">
                 {% if formb %}
                 <div class="border-bottom"><h1>Aadhar Back</h1></div>
-                <div id="Aback" style="margin-left: 12%; margin-top:5%" >{{ formb.as_p }}</div>
                 <br><br>
                 {% endif %}
             
@@ -79,7 +66,6 @@ function hide(data){
           </div> 
         </div>
         <br>
-        <div id="uploadbtn"><center><button class="btn btn-secondary" type="submit" >Upload</button></center></div>
           </form>   
           
       </div>
