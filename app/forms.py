@@ -38,7 +38,7 @@ class BankForm(ModelForm):
         fields = ['text','password','statement']
         
         widgets = {
-            'name' : forms.TextInput(attrs={'class': 'input col-md-6', 'placeholder' : 'Bank Name'}),
-            'email' : forms.EmailInput(attrs={'class': 'input col-md-6', 'placeholder' : 'Password'}),
+            'text' : forms.TextInput(attrs={'class': 'input col-md-2', 'placeholder' : 'Bank Name'}),
+            'password' : forms.PasswordInput(attrs={ 'type':'password', 'class': 'input col-md-2 ', 'placeholder' : 'Password'}),
             'statement': forms.FileInput(attrs={'type':'file', 'class':'form-control col-md-3', 'id':'inputGroupFile04', 'aria-describedby':'inputGroupFileAddon04', 'aria-label':'Upload', 'style':'margin-left:38%; margin-top:2%'})
         }
