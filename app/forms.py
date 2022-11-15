@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import FUpload, BankStatement, BUpload, PUpload
+from .models import FUpload, BankStatement, BUpload, PUpload, Resume
 
 
 class FUploadForm(ModelForm):
@@ -40,5 +40,17 @@ class BankForm(ModelForm):
         widgets = {
             'text' : forms.TextInput(attrs={'class': 'input col-md-2', 'placeholder' : 'Bank Name'}),
             'password' : forms.PasswordInput(attrs={ 'type':'password', 'class': 'input col-md-2 ', 'placeholder' : 'Password'}),
-            'statement': forms.FileInput(attrs={'type':'file', 'class':'form-control col-md-3', 'id':'inputGroupFile04', 'aria-describedby':'inputGroupFileAddon04', 'aria-label':'Upload', 'style':'margin-left:38%; margin-top:2%'})
+            'statement': forms.FileInput(attrs={'type':'file', 'class':'form-control col-md-2', 'id':'inputGroupFile04', 'aria-describedby':'inputGroupFileAddon04', 'aria-label':'Upload', 'style':'margin-left:41.5%; margin-top:2%'})
         }
+
+class ResumeForm(ModelForm):
+    class Meta:
+        model = Resume
+
+        fields = ['file',]
+        
+        widgets = {
+            'file': forms.FileInput(attrs={'type':'file', 'class':'form-control col-md-2', 'id':'inputGroupFile04', 'aria-describedby':'inputGroupFileAddon04', 'aria-label':'Upload', 'style':'margin-left:41.5%; margin-top:2%'})
+        }
+
+

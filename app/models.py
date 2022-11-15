@@ -28,3 +28,9 @@ class BankStatement(models.Model):
 
     def __str__(self):
         return str(self.pk)
+
+class Resume(models.Model):
+    file = models.FileField(upload_to='files/',)
+
+    def __str__(self):
+        return str(self.pk)

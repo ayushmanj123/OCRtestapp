@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('aadhar',views.aadhar, name="aadhar"),
     path('pan', views.pan, name="pan"),
-    path('bankstatement',views.bank, name="bank")
+    path('bankstatement',views.bank, name="bank"),
+    path('resume',views.resume, name="resume")
 ]

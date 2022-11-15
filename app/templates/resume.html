@@ -12,20 +12,12 @@
       <div class="row">
       <div class="col" style="padding-right: 1% !important;padding-left: 1% !important;">
         {% csrf_token %}
-        <div class="border-bottom"><h1>Bank Statement</h1> </div>
+        <div class="border-bottom"><h1>Resume</h1> </div>
          
         
         <div style="margin-left: 2%; margin-top:3%">
-        <h5>Bank Name</h5>
-        {{ formb.text }}</div>
-        
-        <div style="margin-left: 2%; margin-top:3%">
-          <h5>Password</h5>
-          {{ formb.password }}</div>
-        
-        <div style="margin-left: 2%; margin-top:3%">
           <h5>Bank Statement</h5>
-          {{ formb.statement }}</div>
+          {{ formp.file }}</div>
         
         <br><br> 
       </div>

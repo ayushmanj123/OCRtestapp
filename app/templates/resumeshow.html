@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+
+<body >
+
+<br>
+<br>
+    <div>
+      <center>
+        <h2>{{d1.Name}}'s Resume</h2>
+      </center>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;" >
+            <div class="card-body">
+              <h5 class="card-title">Email</h5>
+              <p class="card-text">{{ d1.E_mail }} </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Mobile_Number</h5>
+              <p class="card-text">{{ d1.Mobile_Number }} </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">DOB</h5>
+              <p class="card-text">{{ d1.Dob }} </p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col">
+          <br>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Skills</h5>
+              <p class="card-text">{% for s in d1.skills %}
+                
+                <div>{{s}}</div>
+            
+            {% endfor %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <br>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Education</h5>
+              <p class="card-text"> {% for e in d1.education %}
+                
+                <div>{{e}}</div>
+            
+            {% endfor %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <br>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Experience</h5>
+              <p class="card-text">{% for x in d1.experience %}
+                
+                <div>{{x}}</div>
+    
+                {% endfor %}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+</body>
+
+{% endblock %}

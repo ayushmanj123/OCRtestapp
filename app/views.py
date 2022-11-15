@@ -1,14 +1,14 @@
 import json
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from .forms  import FUploadForm, BUploadForm,BankForm, PUploadForm
-from .models import BUpload, FUpload, BankStatement, PUpload
+from .forms  import FUploadForm, BUploadForm,BankForm, PUploadForm, ResumeForm
+from .models import BUpload, FUpload, BankStatement, PUpload, Resume
 import requests
 from django.template.defaulttags import register
 
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 
 ############################ AADHAR CARD ######################################
@@ -73,7 +73,7 @@ def bank(request):
         if formb.is_valid():
             formb.save()
             data = formb.instance
-          ######  response 
+          ######  response ##########
             url = "https://devbankstatement.digisparsh.in:8000/Bank_statement_Analysis/?"
             
             params={
@@ -83,11 +83,10 @@ def bank(request):
             files ={
                 'file' : data.statement
             }
-            print(type(data.statement.file))
             
             r = requests.post(url,params=params,files=files ,verify=False)
            
-           ####### response 
+           ####### response ##########
 
             response = eval(r.json())
 
@@ -109,3 +108,28 @@ def get_item(dictionary, key):
 
 
 ############################ BANKSTATEMENT END ########################################
+
+def resume(request):
+    image = Resume.objects.last()
+    if request.method == 'POST':
+        formp = ResumeForm(request.POST, request.FILES)
+        if formp.is_valid():
+            formp.save()
+            
+            data = formp.instance
+            url = "http://20.244.126.133:8000/upload_file/"
+                   
+            r = requests.post(url, files = {'file':data.file} ,verify=False )
+           
+           ####### response ##########
+
+            response = r.json
+            
+            return render(request, 'resumeshow.html', {'formp':formp, 'image':image, 'd1':response})
+
+    else:
+        formp = ResumeForm()
+       
+
+    return render(request, 'resume.html', {'formp': formp,'image':image})
+
